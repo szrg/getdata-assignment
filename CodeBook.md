@@ -51,7 +51,7 @@ The following transformations were performed on the source dataset:
 8. Fix column names (remove '()', add names for subject and activity columns).
 9. Group and compute averages.
 10. Fix column names (add 'avg' suffix).
-11. Write data into a file.
+11. Write resulting tidy dataset into a file.
 
 ## Variables
 
