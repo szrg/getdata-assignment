@@ -55,6 +55,8 @@ The following transformations were performed on the source dataset:
 10. Fix column names (add 'avg' suffix).
 11. Write resulting tidy dataset into a file.
 
+The output file with tidy dataset is called `step5data.txt`.
+
 ## Variables
 
 `subject` - Subject who performed the activity as a number from 1 to 30.
