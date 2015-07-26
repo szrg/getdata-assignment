@@ -2,6 +2,7 @@
 zip.file.url <- 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
 zip.file <- 'getdata%2Fprojectfiles%2FUCI HAR Dataset.zip'
 dataset.dir <- 'UCI HAR Dataset'
+# First goes the train dataset and next goes the test dataset.
 subdirs <- c('train', 'test')
 
 # Download and uznip the dataset archive if it is not done already.
@@ -14,8 +15,7 @@ if (!file.exists(dataset.dir)) {
     unzip(zip.file)
 }
 
-# Create list of dataset files: first goes the train dataset and 
-# next goes the test dataset.
+# Create list of dataset files.
 file.list <- lapply(subdirs, function(x) { 
     file.path(dataset.dir, x, paste0('X_', x, '.txt'))
 })
@@ -62,11 +62,14 @@ subjects <- do.call('rbind', lapply(file.list, function (x) {
     read.table(x, row.names = NULL) 
 }))
 
-# Add a descriptive name
+# Add a descriptive name.
 names(subjects) <- c('subject')
 
-# Join all together
+# Join all together.
 data <- cbind(subjects, activities, data)
+
+# Remove () in column names.
+names(data) <- gsub('()', '', names(data), fixed = T)
 
 # Create data set with averages for each subject and activity. Using dplyr here.
 library(dplyr)
