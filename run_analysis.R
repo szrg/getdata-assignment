@@ -70,7 +70,11 @@ data <- cbind(subjects, activities, data)
 
 # Create data set with averages for each subject and activity. Using dplyr here.
 library(dplyr)
-step5.data <- data %>% group_by(subject, activity) %>% summarise_each(funs(mean))
+step5data <- data %>% group_by(subject, activity) %>% summarise_each(funs(mean))
+
+# Add more descriptive names for AVG columns.
+step5data.names <- names(step5data)
+names(step5data) <- c(step5data.names[c(1,2)], paste('avg-', step5data.names[-c(1,2)], sep=''))
 
 # Save the resulting dataset.
-write.table(step5.data, 'step5data.txt', row.name=FALSE)
+write.table(step5data, 'step5data.txt', row.name=FALSE)
