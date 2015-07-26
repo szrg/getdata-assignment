@@ -34,8 +34,7 @@ data <- data[,grep('-(mean|std)\\(\\)', features)]
 alabels.raw <- read.table(file.path(dataset.dir, 'activity_labels.txt'))
 alabels <- alabels.raw[,2]
 
-# Create list of activity files: first goes the train activities and 
-# next goes the test activities.
+# Create list of activity files.
 file.list <- lapply(subdirs, function(x) { 
     file.path(dataset.dir, x, paste0('y_', x, '.txt'))
 })
@@ -51,8 +50,7 @@ activities$V1 <- factor(activities$V1, labels=alabels)
 # Add a descriptive name.
 names(activities) <- c('activity')
 
-# Create list of subject files: first goes the train subjects and 
-# next goes the test subjects.
+# Create list of subject files.
 file.list <- lapply(subdirs, function(x) { 
     file.path(dataset.dir, x, paste0('subject_', x, '.txt'))
 })
