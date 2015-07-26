@@ -43,7 +43,7 @@ The following transformations were performed on the source dataset:
 
 1. Read and join training and test measurement data.
 2. Read and join training and test activities.
-3. Read activyty names.
+3. Read activity names.
 4. Label activities using descriptive names.
 5. Discard everything but means and standard deviations.
 6. Read and join training and test subjects.
