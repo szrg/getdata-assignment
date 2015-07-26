@@ -73,4 +73,4 @@ library(dplyr)
 step5.data <- data %>% group_by(subject, activity) %>% summarise_each(funs(mean))
 
 # Save the resulting dataset.
-write.table(step5.data, 'step5.data.txt', row.name=FALSE)
+write.table(step5.data, 'step5data.txt', row.name=FALSE)
